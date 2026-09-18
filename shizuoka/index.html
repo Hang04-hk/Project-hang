@@ -4,22 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>清水港・駿河湾探訪｜旅程案内＆事前調査ガイド</title>
+  <meta name="description" content="駿河湾クルーズ、三保の松原、国宝・久能山東照宮をめぐる研修旅行ガイド。" />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
       --primary: #0d9488;
       --primary-dark: #0f766e;
+      --primary-deep: #042f2e;
       --primary-soft: #ccfbf1;
-      --text-main: #134e4a;
-      --text-sub: #2dd4bf;
-      --text-dark: #0f172a;
+      --accent: #f59e0b;
+      --bg-gradient: linear-gradient(180deg, #b2f5ea 0%, #cbf6ee 15%, #e6faf7 40%, #cbf6ee 75%, #a7f3d0 100%);
+      --text-main: #0f172a;
+      --text-sub: #134e4a;
+      --text-muted: #475569;
       --border: rgba(20, 184, 166, 0.25);
-      --border-soft: rgba(20, 184, 166, 0.15);
-      --card-bg: rgba(255, 255, 255, 0.92);
+      --card-bg: rgba(255, 255, 255, 0.94);
       --shadow-sm: 0 4px 12px rgba(13, 148, 136, 0.08);
       --shadow-md: 0 14px 30px rgba(13, 148, 136, 0.12);
     }
@@ -32,105 +36,183 @@
     }
 
     body {
-      background: linear-gradient(180deg, #b2f5ea 0%, #cbf6ee 15%, #e6faf7 40%, #cbf6ee 75%, #a7f3d0 100%);
+      background: var(--bg-gradient);
       background-attachment: fixed;
-      color: var(--text-dark);
+      color: var(--text-main);
       line-height: 1.75;
       scroll-behavior: smooth;
       min-height: 100vh;
     }
 
-    .hero {
-      min-height: 40vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 3.5rem 1.5rem 2rem;
-      background: transparent;
+    /* Sticky Nav Bar */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     }
 
-    .badge {
+    .sticky-nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .nav-brand {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--primary-deep);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .nav-brand i {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-page-btn {
+      padding: 0.45rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-page-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-page-btn.passive {
+      background: #ffffff;
+      color: var(--primary-dark);
+      border: 1px solid #99f6e4;
+    }
+
+    .nav-page-btn.passive:hover {
+      background: #f0fdfa;
+      border-color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 3.5rem 1.5rem 2.2rem;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .badge-tag {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.45rem 1.25rem;
+      padding: 0.5rem 1.35rem;
       background: rgba(255, 255, 255, 0.95);
-      color: #0f766e;
+      color: var(--primary-dark);
       border: 1px solid #99f6e4;
       border-radius: 9999px;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 700;
       margin-bottom: 1.2rem;
       box-shadow: var(--shadow-sm);
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
       font-weight: 900;
       line-height: 1.35;
       margin-bottom: 1rem;
-      color: #042f2e;
+      color: var(--primary-deep);
       letter-spacing: -0.01em;
     }
 
     .hero h1 span {
-      color: #0d9488;
+      color: var(--primary);
+      background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .hero p {
-      max-width: 700px;
-      color: #115e59;
-      font-size: 1.05rem;
-      margin-bottom: 1.8rem;
+      max-width: 760px;
+      margin: 0 auto 1.8rem;
+      color: var(--text-sub);
+      font-size: 1.08rem;
+      line-height: 1.7;
     }
 
     .trip-overview {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem 1.5rem;
+      gap: 1rem 1.8rem;
       justify-content: center;
       background: rgba(255, 255, 255, 0.95);
-      padding: 1rem 1.8rem;
-      border-radius: 1rem;
+      padding: 1.1rem 2rem;
+      border-radius: 1.1rem;
       border: 1px solid #99f6e4;
       box-shadow: var(--shadow-sm);
-      font-size: 0.9rem;
-      color: #134e4a;
+      font-size: 0.92rem;
+      color: var(--text-sub);
     }
 
     .trip-overview strong {
-      color: #0f766e;
+      color: var(--primary-dark);
     }
 
+    /* Main Container */
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem 4rem;
+      padding: 1.5rem 1.5rem 4rem;
     }
 
-    .section-title {
+    .section-header {
       text-align: center;
       margin-bottom: 2.5rem;
     }
 
-    .section-title h2 {
-      font-size: 1.85rem;
+    .section-header h2 {
+      font-size: 1.9rem;
       font-weight: 800;
-      color: #042f2e;
+      color: var(--primary-deep);
       margin-bottom: 0.4rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
     }
 
-    .section-title p {
-      color: #115e59;
-      font-size: 0.95rem;
+    .section-header p {
+      color: var(--text-sub);
+      font-size: 0.98rem;
     }
 
+    /* Timeline Section */
     .timeline-wrap {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 1.25rem;
+      border-radius: 1.5rem;
       padding: 2.5rem 2rem;
       margin-bottom: 3.5rem;
       box-shadow: var(--shadow-md);
@@ -139,19 +221,20 @@
 
     .timeline {
       position: relative;
-      max-width: 760px;
+      max-width: 820px;
       margin: 0 auto;
-      padding-left: 2rem;
+      padding-left: 2.2rem;
     }
 
     .timeline::before {
       content: '';
       position: absolute;
-      left: 7px;
-      top: 12px;
-      bottom: 12px;
-      width: 2px;
-      background: #5eead4;
+      left: 9px;
+      top: 14px;
+      bottom: 14px;
+      width: 3px;
+      background: linear-gradient(180deg, #5eead4 0%, #0d9488 100%);
+      border-radius: 3px;
     }
 
     .timeline-item {
@@ -165,318 +248,234 @@
 
     .timeline-dot {
       position: absolute;
-      left: -2rem;
+      left: -2.2rem;
       top: 6px;
-      width: 16px;
-      height: 16px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
       background: #ffffff;
-      border: 3px solid #0d9488;
+      border: 4px solid var(--primary);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.8);
     }
 
     .timeline-dot.highlight {
-      background: #0d9488;
-      box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.25);
+      background: var(--primary);
+      box-shadow: 0 0 0 5px rgba(13, 148, 136, 0.25);
     }
 
     .timeline-card-simple {
       background: #f0fdfa;
       border: 1px solid #ccfbf1;
-      border-radius: 0.85rem;
-      padding: 1rem 1.25rem;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      border-radius: 1rem;
+      padding: 1.15rem 1.4rem;
+      transition: all 0.2s ease;
     }
 
     .timeline-card-simple:hover {
-      transform: translateX(4px);
+      transform: translateX(5px);
       border-color: #5eead4;
+      box-shadow: var(--shadow-sm);
     }
 
     .timeline-time {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
       font-size: 0.85rem;
       font-weight: 800;
-      color: #0f766e;
+      color: var(--primary-dark);
       background: #ffffff;
-      padding: 0.15rem 0.65rem;
-      border-radius: 0.35rem;
-      margin-bottom: 0.35rem;
+      padding: 0.2rem 0.75rem;
+      border-radius: 0.4rem;
+      margin-bottom: 0.4rem;
       border: 1px solid #99f6e4;
     }
 
     .timeline-card-simple h4 {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       font-weight: 800;
-      color: #042f2e;
-      margin-bottom: 0.25rem;
+      color: var(--primary-deep);
+      margin-bottom: 0.3rem;
     }
 
     .timeline-card-simple p {
-      font-size: 0.88rem;
-      color: #134e4a;
-      line-height: 1.55;
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      line-height: 1.6;
     }
 
-    .spot-article {
+    /* 3 Main Sights Summary Cards Grid */
+    .sights-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .sight-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 1.5rem;
+      border-radius: 1.4rem;
       overflow: hidden;
-      margin-bottom: 3.5rem;
       box-shadow: var(--shadow-md);
-      backdrop-filter: blur(8px);
-    }
-
-    .spot-header-img {
-      position: relative;
-      height: 380px;
-      background: #ccfbf1;
-      overflow: hidden;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .spot-header-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .spot-time-badge {
-      position: absolute;
-      top: 1.25rem;
-      left: 1.25rem;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(8px);
-      color: #0f766e;
-      padding: 0.35rem 0.95rem;
-      border-radius: 9999px;
-      font-size: 0.85rem;
-      font-weight: 800;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid #99f6e4;
-      z-index: 2;
-    }
-
-    .spot-main-content {
-      padding: 2.2rem;
-    }
-
-    .spot-category {
-      font-size: 0.8rem;
-      color: #0d9488;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-      letter-spacing: 0.05em;
-    }
-
-    .spot-title {
-      font-size: 1.7rem;
-      font-weight: 900;
-      margin-bottom: 0.2rem;
-      color: #042f2e;
-    }
-
-    .spot-furigana {
-      font-size: 0.85rem;
-      color: #115e59;
-      margin-bottom: 1.5rem;
-    }
-
-    .gallery-section {
-      margin: 1.5rem 0;
-    }
-
-    .gallery-title {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #042f2e;
-      margin-bottom: 0.75rem;
       display: flex;
-      align-items: center;
-      gap: 0.4rem;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .gallery-grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.85rem;
+    .sight-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(13, 148, 136, 0.2);
     }
 
-    @media (max-width: 860px) {
-      .gallery-grid-4 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .gallery-grid-4 {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .gallery-item {
+    .sight-card-img {
       position: relative;
-      border-radius: 1.25rem;
+      height: 210px;
       overflow: hidden;
-      height: 160px;
-      background: #f0fdfa;
-      border: 2px solid #99f6e4;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
     }
 
-    .gallery-item:hover {
-      transform: translateY(-4px);
-      border-color: #0d9488;
-      box-shadow: 0 10px 20px rgba(13, 148, 136, 0.2);
-    }
-
-    .gallery-item img {
+    .sight-card-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease;
+      transition: transform 0.5s ease;
     }
 
-    .gallery-item:hover img {
+    .sight-card:hover .sight-card-img img {
       transform: scale(1.06);
     }
 
-    .gallery-caption {
+    .sight-num-badge {
       position: absolute;
-      bottom: 0.4rem;
-      left: 0.5rem;
-      right: 0.5rem;
-      padding: 0.35rem 0.6rem;
-      background: rgba(4, 47, 46, 0.82);
-      backdrop-filter: blur(4px);
+      top: 1rem;
+      left: 1rem;
+      background: var(--primary);
       color: #ffffff;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-align: center;
+      padding: 0.35rem 0.9rem;
       border-radius: 9999px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      z-index: 2;
-    }
-
-    .analysis-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    @media (min-width: 640px) {
-      .analysis-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .point-box {
-      background: #f0fdfa;
-      border: 1px solid #ccfbf1;
-      padding: 1.1rem 1.2rem;
-      border-radius: 0.85rem;
-    }
-
-    .point-header {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #0f766e;
-      margin-bottom: 0.35rem;
-    }
-
-    .point-text {
-      font-size: 0.88rem;
-      color: #134e4a;
-      line-height: 1.65;
-    }
-
-    .spot-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1.5rem;
-      padding-top: 1.2rem;
-      border-top: 1px solid #ccfbf1;
-    }
-
-    .tag {
-      font-size: 0.75rem;
-      background: #f0fdfa;
-      color: #0f766e;
-      border: 1px solid #99f6e4;
-      padding: 0.3rem 0.75rem;
-      border-radius: 0.5rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-weight: 600;
-    }
-
-    .notice-box {
-      background: var(--card-bg);
-      border: 1px solid #99f6e4;
-      border-left: 5px solid #0d9488;
-      border-radius: 0.85rem;
-      padding: 1.5rem;
-      margin-top: 2rem;
+      font-size: 0.85rem;
+      font-weight: 800;
       box-shadow: var(--shadow-sm);
     }
 
-    .notice-title {
-      font-size: 0.95rem;
+    .sight-time-tag {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(6px);
+      color: #ffffff;
+      padding: 0.3rem 0.8rem;
+      border-radius: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .sight-card-body {
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .sight-tag-subtitle {
+      font-size: 0.8rem;
       font-weight: 800;
-      color: #0f766e;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.04em;
+    }
+
+    .sight-card-title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--primary-deep);
       margin-bottom: 0.6rem;
-      display: flex;
+      line-height: 1.4;
+    }
+
+    .sight-card-desc {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .sight-card-btn {
+      display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.5rem;
+      width: 100%;
+      padding: 0.75rem;
+      background: #f0fdfa;
+      color: var(--primary-dark);
+      border: 1px solid #99f6e4;
+      border-radius: 0.85rem;
+      font-size: 0.92rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: all 0.2s ease;
     }
 
-    .notice-list {
-      list-style: none;
-      padding: 0;
-      font-size: 0.88rem;
-      color: #134e4a;
+    .sight-card-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
     }
 
-    .notice-list li {
-      margin-bottom: 0.4rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-
+    /* Footer */
     footer {
       text-align: center;
       padding: 3rem 1.5rem;
       border-top: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.6);
-      color: #115e59;
-      font-size: 0.85rem;
-      backdrop-filter: blur(4px);
+      background: rgba(255, 255, 255, 0.75);
+      color: var(--text-sub);
+      font-size: 0.88rem;
+      backdrop-filter: blur(6px);
+      line-height: 1.8;
     }
 
-    footer span {
-      color: #0f766e;
-      font-weight: 700;
+    footer .brand-title {
+      font-weight: 800;
+      color: var(--primary-deep);
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    footer .school-info {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      margin-bottom: 0.4rem;
+    }
+
+    footer .copyright {
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
   </style>
 </head>
 <body>
 
+  <!-- Sticky Top Navigation -->
+  <nav class="sticky-nav">
+    <div class="sticky-nav-inner">
+      <a href="index.html" class="nav-brand">
+        <i class="fa-solid fa-map-location-dot"></i> Saito Travel Guide: 静岡＆清水探訪
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-page-btn active"><i class="fa-solid fa-clock-rotate-left"></i> 旅程＆事前調査</a>
+        <a href="spots.html" class="nav-page-btn passive"><i class="fa-solid fa-location-dot"></i> 観光地一覧（詳細）</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
   <header class="hero">
-    <span class="badge"><i class="fa-solid fa-compass"></i> 研修旅行ガイド（前半ハイライト）</span>
+    <span class="badge-tag"><i class="fa-solid fa-compass"></i> 研修旅行ガイド（前半ハイライト）</span>
     <h1>清水港・駿河湾 <span>旅程案内＆事前調査</span></h1>
-    <p>旅行計画書に基づく午前〜昼の正確なタイムスケジュールと、訪れる主要2スポットの深い学び（地理・歴史・文化・エピソード）をまとめました。</p>
+    <p>旅行計画書に基づく午前〜午後の正確なタイムスケジュールと、訪れる主要3大名所スポットの見どころをまとめました。</p>
 
     <div class="trip-overview">
       <div><i class="fa-regular fa-calendar-check" style="color:#0d9488"></i> <strong>日程：</strong>令和8年9月12日（土）</div>
@@ -487,8 +486,9 @@
 
   <main class="container">
 
+    <!-- Timeline Section -->
     <section class="timeline-wrap">
-      <div class="section-title" style="margin-bottom: 2.2rem;">
+      <div class="section-header">
         <h2><i class="fa-solid fa-clock-rotate-left"></i> 前半タイムスケジュール（時間・行程）</h2>
         <p>旅行計画書に基づく当日の進行時間割です</p>
       </div>
@@ -497,7 +497,7 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-card-simple">
-            <span class="timeline-time">08:45 配車 ／ 09:00 出発</span>
+            <span class="timeline-time"><i class="fa-regular fa-clock"></i> 08:45 配車 ／ 09:00 出発</span>
             <h4>学校前集合・中型バス出発</h4>
             <p>中部コンピュータ・パティシエ専門学校前より清水へ向けて出発します。車内では安全のためシートベルトを常時着用してください。</p>
           </div>
@@ -506,7 +506,7 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-card-simple">
-            <span class="timeline-time">09:30（新東名高速道路 休憩1回）</span>
+            <span class="timeline-time"><i class="fa-regular fa-clock"></i> 09:30（新東名高速道路 休憩1回）</span>
             <h4>豊川IC（高速道路進入）</h4>
             <p>新東名高速道路を走行。途中のサービスエリア/パーキングエリアにて1回リフレッシュ休憩を取ります。</p>
           </div>
@@ -515,7 +515,7 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-card-simple">
-            <span class="timeline-time">11:00</span>
+            <span class="timeline-time"><i class="fa-regular fa-clock"></i> 11:00</span>
             <h4>清水IC 到着</h4>
             <p>高速道路を降り、心地よい潮風が漂う清水港のウォーターフロントエリアへ直行します。</p>
           </div>
@@ -524,8 +524,8 @@
         <div class="timeline-item">
           <div class="timeline-dot highlight"></div>
           <div class="timeline-card-simple">
-            <span class="timeline-time">11:20 〜 12:40（昼食 11:40〜）</span>
-            <h4>スポット①：清水エスパルスドリームプラザ</h4>
+            <span class="timeline-time"><i class="fa-regular fa-clock"></i> 11:20 〜 12:40（昼食 11:40〜）</span>
+            <h4>昼食 ＆ 複合施設｜清水エスパルスドリームプラザ</h4>
             <p>館内「はとばキッチン」にて地元旬菜ビュッフェの昼食。食後は自由散策やお土産選びを楽しみます。</p>
           </div>
         </div>
@@ -533,160 +533,100 @@
         <div class="timeline-item">
           <div class="timeline-dot highlight"></div>
           <div class="timeline-card-simple">
-            <span class="timeline-time">13:00 〜 13:40（40分間）</span>
-            <h4>スポット②：駿河湾クルーズ（清水港日の出桟橋）</h4>
-            <p>遊覧船「ベイプロムナード号」乗船。海上デッキから富士山を眺め、カモメの餌やりを体験します。</p>
+            <span class="timeline-time"><i class="fa-regular fa-clock"></i> 12:40 〜 13:20（40分間）</span>
+            <h4>スポット①：駿河湾フェリー・遊覧船クルーズ</h4>
+            <p>日の出埠頭より遊覧船「ベイプロムナード号」乗船。海上デッキから富士山を望み、カモメへの餌やり体験を楽しみます。</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div>
+          <div class="timeline-card-simple">
+            <span class="timeline-time"><i class="fa-regular fa-clock"></i> 13:00 〜 13:45（45分間）</span>
+            <h4>スポット②：富士山世界文化遺産構成資産 三保の松原</h4>
+            <p>約3万本の松並木が続く海岸美と天女の羽衣伝説の地。「神の道」や文化館「みほしるべ」を見学します。</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div>
+          <div class="timeline-card-simple">
+            <span class="timeline-time"><i class="fa-regular fa-clock"></i> 13:40 〜 15:00（70分間）</span>
+            <h4>スポット③：国宝 久能山東照宮・日本平ロープウェイ</h4>
+            <p>徳川家康公を祀る最初の東照宮。絶景ロープウェイで地獄谷を越え、豪華絢爛な国宝社殿を拝観します。</p>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="section-title">
-      <h2>主要立ち寄りスポット解説（事前調査内容）</h2>
-      <p>各スポットのフルサイズ写真と4要素（地理・歴史・文化・エピソード）の解説</p>
-    </div>
-
-    <article class="spot-article">
-      <div class="spot-header-img">
-        <img src="images/dream-plaza.jpg" alt="エスパルスドリームプラザ全景">
-        <span class="spot-time-badge"><i class="fa-regular fa-clock"></i> 滞在 11:20 - 12:40</span>
+    <!-- Major Sightseeing Spots Section -->
+    <section>
+      <div class="section-header">
+        <h2>主要観光スポット ツアー日程と3大見どころ名所</h2>
+        <p>駿河湾の大パノラマクルーズ、歴史ある三保の松原、そして国宝・久能山東照宮を体験。</p>
       </div>
 
-      <div class="spot-main-content">
-        <span class="spot-category">スポット 01 ｜ 昼食 ＆ 複合施設</span>
-        <h3 class="spot-title">清水エスパルスドリームプラザ</h3>
-        <p class="spot-furigana">しみず えすぱるす どりーむ ぷらざ</p>
-
-        <div class="gallery-section">
-          <div class="gallery-title"><i class="fa-regular fa-images"></i> 現地フォトギャラリー（4景観）</div>
-          <div class="gallery-grid-4">
-            <div class="gallery-item">
-              <img src="images/ferris-wheel.jpg" alt="大観覧車ドリームスカイ">
-              <span class="gallery-caption">大観覧車</span>
-            </div>
-            <div class="gallery-item">
-              <img src="images/maruko.jpg" alt="ちびまる子ちゃんランド">
-              <span class="gallery-caption">ちびまる子ちゃんランド</span>
-            </div>
-            <div class="gallery-item">
-              <img src="images/oden.jpg" alt="静岡名物・黒はんぺんとおでん">
-              <span class="gallery-caption">静岡おでん</span>
-            </div>
-            <div class="gallery-item">
-              <img src="images/fuji-view.jpg" alt="遊覧船と富士山">
-              <span class="gallery-caption">富士山と遊覧船</span>
-            </div>
+      <div class="sights-summary-grid">
+        <!-- Card 1 -->
+        <article class="sight-card">
+          <div class="sight-card-img">
+            <img src="images/cruise.jpg" alt="駿河湾フェリー・遊覧船クルーズ">
+            <span class="sight-num-badge">Suruga Bay Cruise 1</span>
+            <span class="sight-time-tag"><i class="fa-regular fa-clock"></i> 12:40 - 13:20</span>
           </div>
-        </div>
-
-        <div class="analysis-grid">
-          <div class="point-box">
-            <div class="point-header"><i class="fa-solid fa-earth-asia"></i> 地理（ちり）</div>
-            <p class="point-text">三保半島が外海の荒波を遮る天然の防波堤となり、年間を通じて波が穏やかな天然の良港「清水港」の沿岸に位置します。</p>
+          <div class="sight-card-body">
+            <span class="sight-tag-subtitle"><i class="fa-solid fa-mountain"></i> 富士山と駿河湾の大パノラマ絶景</span>
+            <h3 class="sight-card-title">駿河湾フェリー・遊覧船クルーズ</h3>
+            <p class="sight-card-desc">清水港から望む富士山の大パノラマとカモメとの戯れ体験。日の出埠頭から出港する絶景クルーズ。</p>
+            <a href="spots.html#spot-cruise" class="sight-card-btn">
+              詳細を開く <i class="fa-solid fa-angle-right"></i>
+            </a>
           </div>
+        </article>
 
-          <div class="point-box">
-            <div class="point-header"><i class="fa-solid fa-landmark-dome"></i> 歴史（れきし）</div>
-            <p class="point-text">1899年の開港以来、日本一のお茶輸出港として世界へ展開。1999年に開港100周年記念の再開発事業として誕生しました。</p>
+        <!-- Card 2 -->
+        <article class="sight-card">
+          <div class="sight-card-img">
+            <img src="images/miho-matsubara.jpg" alt="富士山世界文化遺産構成資産 三保の松原">
+            <span class="sight-num-badge">Miho no Matsubara 2</span>
+            <span class="sight-time-tag"><i class="fa-regular fa-clock"></i> 13:00 - 13:45</span>
           </div>
-
-          <div class="point-box">
-            <div class="point-header"><i class="fa-solid fa-utensils"></i> 文化（ぶんか）</div>
-            <p class="point-text">清水すし横丁や静岡おでんなどの海の幸食文化と、清水出身のさくらももこ先生による『ちびまる子ちゃん』の昭和日常文化を発信。</p>
+          <div class="sight-card-body">
+            <span class="sight-tag-subtitle"><i class="fa-solid fa-globe"></i> ユネスコ世界文化遺産構成資産</span>
+            <h3 class="sight-card-title">富士山世界文化遺産構成資産 三保の松原</h3>
+            <p class="sight-card-desc">約3万本の松林が続く7kmの海岸美と天女の羽衣伝説。松並木と黒砂海岸越しに見る富士山はまさに絶景。</p>
+            <a href="spots.html#spot-miho" class="sight-card-btn">
+              詳細を開く <i class="fa-solid fa-angle-right"></i>
+            </a>
           </div>
+        </article>
 
-          <div class="point-box">
-            <div class="point-header"><i class="fa-solid fa-lightbulb"></i> エピソード</div>
-            <p class="point-text">名称の「エスパルス」はShizuoka、Shimizu、Soccer、Supporterの「S」と、人々の熱い鼓動（Pulse）に由来しています。</p>
+        <!-- Card 3 -->
+        <article class="sight-card">
+          <div class="sight-card-img">
+            <img src="images/toshogu-shrine.jpg" alt="国宝 久能山東照宮・日本平ロープウェイ">
+            <span class="sight-num-badge">Kunozan Toshogu Shrine 3</span>
+            <span class="sight-time-tag"><i class="fa-regular fa-clock"></i> 13:40 - 15:00</span>
           </div>
-        </div>
-
-        <div class="spot-tags">
-          <span class="tag"><i class="fa-solid fa-bowl-food"></i> はとばキッチン（11:40〜）</span>
-          <span class="tag"><i class="fa-solid fa-tv"></i> ちびまる子ちゃんランド</span>
-          <span class="tag"><i class="fa-solid fa-fish"></i> 冷凍マグロ水揚げ日本一</span>
-        </div>
+          <div class="sight-card-body">
+            <span class="sight-tag-subtitle"><i class="fa-solid fa-crown"></i> 国宝指定の豪華絢爛な御社殿</span>
+            <h3 class="sight-card-title">国宝 久能山東照宮・日本平ロープウェイ</h3>
+            <p class="sight-card-desc">徳川家康公を祀る最初の東照宮。絶景ロープウェイでアクセス。権現造りの社殿は国宝に指定。</p>
+            <a href="spots.html#spot-toshogu" class="sight-card-btn">
+              詳細を開く <i class="fa-solid fa-angle-right"></i>
+            </a>
+          </div>
+        </article>
       </div>
-    </article>
-
-    <article class="spot-article">
-      <div class="spot-header-img">
-        <img src="images/cruise.jpg" alt="遊覧船ベイプロムナード号">
-        <span class="spot-time-badge"><i class="fa-regular fa-clock"></i> 出航 13:00 - 13:40</span>
-      </div>
-
-      <div class="spot-main-content">
-        <span class="spot-category">スポット 02 ｜ 海上パノラマ遊覧</span>
-        <h3 class="spot-title">駿河湾クルーズ（清水港）</h3>
-        <p class="spot-furigana">するがわん くるーず（日の出桟橋）</p>
-
-        <div class="gallery-section">
-          <div class="gallery-title"><i class="fa-regular fa-images"></i> 現地フォトギャラリー（4景観）</div>
-          <div class="gallery-grid-4">
-            <div class="gallery-item">
-              <img src="images/cruise-view.jpg" alt="クルーズ船上からの富士山展望">
-              <span class="gallery-caption">特等席からの富士山</span>
-            </div>
-            <div class="gallery-item">
-              <img src="images/seagull.jpg" alt="船を追うカモメ">
-              <span class="gallery-caption">カモメ・ウミネコ</span>
-            </div>
-            <div class="gallery-item">
-              <img src="images/crane.jpg" alt="駿河湾を進む遊覧船">
-              <span class="gallery-caption">湾上の遊覧船</span>
-            </div>
-            <div class="gallery-item">
-              <img src="images/wake-waves.jpg" alt="駿河湾を一望する景観">
-              <span class="gallery-caption">駿河湾を一望する</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="analysis-grid">
-          <div class="point-box">
-            <div class="point-header"><i class="fa-solid fa-water"></i> 地理（ちり）</div>
-            <p class="point-text">最深部約2,500mを誇る「日本一深い湾」です。標高3,776mの富士山との高低差は6,000mを超え、世界でも稀な起伏に富んだ地形です。</p>
-          </div>
-
-          <div class="point-box">
-            <div class="point-header"><i class="fa-solid fa-anchor"></i> 歴史（れきし）</div>
-            <p class="point-text">江戸期より徳川家康公ゆかりの海上物資輸送拠点として重用され、現在も日本屈指の遠洋漁業基地として日本の食卓を支えています。</p>
-          </div>
-
-          <div class="point-box">
-            <div class="point-header"><i class="fa-solid fa-mountain-sun"></i> 文化（ぶんか）</div>
-            <p class="point-text">海越しに仰ぎ見る「富士山と三保の松原」は、古くから浮世絵や和歌の題材として愛され続けてきた日本の伝統的な美観そのものです。</p>
-          </div>
-
-          <div class="point-box">
-            <div class="point-header"><i class="fa-solid fa-dove"></i> エピソード</div>
-            <p class="point-text">オープンデッキは「海の特等席」と呼ばれ、船を追うカモメへの餌やり体験ができるほか、運が良ければ野生のイルカとも出会えます。</p>
-          </div>
-        </div>
-
-        <div class="spot-tags">
-          <span class="tag"><i class="fa-solid fa-ship"></i> ベイプロムナード号</span>
-          <span class="tag"><i class="fa-solid fa-eye"></i> 富士山360度パノラマ</span>
-          <span class="tag"><i class="fa-solid fa-feather-pointed"></i> カモメの餌やり</span>
-        </div>
-      </div>
-    </article>
-
-    <div class="notice-box">
-      <div class="notice-title">
-        <i class="fa-solid fa-triangle-exclamation"></i> 参加にあたっての注意事項（計画書より）
-      </div>
-      <ul class="notice-list">
-        <li><i class="fa-solid fa-circle-check" style="color:#0d9488"></i> お客様の安全確保のため、バス走行中は常にシートベルトの着用をお願いいたします。</li>
-        <li><i class="fa-solid fa-circle-check" style="color:#0d9488"></i> 道路交通状況や運輸機関などの都合により、出発・到着時間が前後する場合があります。</li>
-        <li><i class="fa-solid fa-circle-check" style="color:#0d9488"></i> この日程表は令和8年8月7日時点のスケジュールに基づきます。</li>
-      </ul>
-    </div>
+    </section>
 
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p>手配：<span>株式会社 第一観光</span> ｜ 団体名：<span>中部コンピュータ・パティシエ専門学校</span></p>
+    <div class="brand-title">Saito Travel Guide: Shizuoka & Shimizu Discovery Tour</div>
+    <div class="school-info">Chubu Computer & Patissier College ｜ Operations Desk TEL: 054-281-3111</div>
+    <div class="copyright">&copy; 2026 Saito Travel Operations Desk. All Rights Reserved.</div>
   </footer>
 
 </body>
