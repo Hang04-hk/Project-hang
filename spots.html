@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>観光地一覧｜主要観光スポットツアー日程と3大見どころ名所</title>
+  <meta name="description" content="駿河湾の大パノラマクルーズ、歴史ある三保の松原、そして国宝・久能山東照宮を体験。主要観光スポット一覧。" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #0d9488;
+      --primary-dark: #0f766e;
+      --primary-deep: #042f2e;
+      --primary-soft: #ccfbf1;
+      --accent: #f59e0b;
+      --bg-gradient: linear-gradient(180deg, #b2f5ea 0%, #cbf6ee 15%, #e6faf7 40%, #cbf6ee 75%, #a7f3d0 100%);
+      --text-main: #0f172a;
+      --text-sub: #134e4a;
+      --text-muted: #475569;
+      --border: rgba(20, 184, 166, 0.25);
+      --card-bg: rgba(255, 255, 255, 0.94);
+      --shadow-sm: 0 4px 12px rgba(13, 148, 136, 0.08);
+      --shadow-md: 0 14px 30px rgba(13, 148, 136, 0.12);
+      --shadow-lg: 0 20px 40px rgba(13, 148, 136, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-main);
+      line-height: 1.75;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+
+    /* Sticky Nav Bar */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .sticky-nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .nav-brand {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--primary-deep);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .nav-brand i {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-page-btn {
+      padding: 0.45rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-page-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-page-btn.passive {
+      background: #ffffff;
+      color: var(--primary-dark);
+      border: 1px solid #99f6e4;
+    }
+
+    .nav-page-btn.passive:hover {
+      background: #f0fdfa;
+      border-color: var(--primary);
+    }
+
+    /* Quick Jump Container */
+    .quick-jump-container {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.1rem 1.4rem;
+      margin-top: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .quick-jump-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .quick-jump-pills {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .jump-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 1.05rem;
+      background: #f0fdfa;
+      color: var(--primary-dark);
+      border: 1px solid #99f6e4;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .jump-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .jump-btn .num-badge {
+      background: var(--primary);
+      color: #ffffff;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+    }
+
+    .jump-btn:hover .num-badge {
+      background: #ffffff;
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 3.5rem 1.5rem 2.2rem;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.35rem;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--primary-dark);
+      border: 1px solid #99f6e4;
+      border-radius: 9999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 0.8rem;
+      color: var(--primary-deep);
+      letter-spacing: -0.01em;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 0 auto 1.5rem;
+      color: var(--text-sub);
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 4rem;
+    }
+
+    /* Spot Cards */
+    .spot-article {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1.6rem;
+      overflow: hidden;
+      margin-bottom: 3.5rem;
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(8px);
+      scroll-margin-top: 5rem;
+    }
+
+    .spot-header-img {
+      position: relative;
+      height: 380px;
+      background: #ccfbf1;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .spot-header-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .spot-article:hover .spot-header-img img {
+      transform: scale(1.03);
+    }
+
+    .spot-badges-wrapper {
+      position: absolute;
+      top: 1.25rem;
+      left: 1.25rem;
+      right: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      z-index: 2;
+    }
+
+    .spot-time-badge {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      color: var(--primary-dark);
+      padding: 0.45rem 1.15rem;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #99f6e4;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .spot-duration-badge {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 0.45rem 1.05rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .spot-main-content {
+      padding: 2.4rem;
+    }
+
+    .spot-category {
+      display: inline-block;
+      font-size: 0.82rem;
+      color: var(--primary);
+      font-weight: 800;
+      margin-bottom: 0.35rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .spot-title {
+      font-size: 1.85rem;
+      font-weight: 900;
+      margin-bottom: 0.2rem;
+      color: var(--primary-deep);
+      line-height: 1.35;
+    }
+
+    .spot-furigana {
+      font-size: 0.92rem;
+      color: var(--primary-dark);
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+
+    .spot-lead-text {
+      font-size: 1.02rem;
+      color: var(--text-sub);
+      line-height: 1.7;
+      margin-bottom: 1.6rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .spot-highlights-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.6rem 1rem;
+      margin-bottom: 1.8rem;
+      background: #f0fdfa;
+      border: 1px solid #ccfbf1;
+      padding: 1.1rem 1.3rem;
+      border-radius: 0.9rem;
+    }
+
+    .spot-highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .spot-highlight-item i {
+      color: var(--primary);
+    }
+
+    /* Photogallery Grid */
+    .gallery-section {
+      margin: 2rem 0;
+    }
+
+    .gallery-header-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--primary-deep);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .gallery-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.9rem;
+    }
+
+    @media (max-width: 860px) {
+      .gallery-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 1.1rem;
+      overflow: hidden;
+      height: 165px;
+      background: #f0fdfa;
+      border: 2px solid #99f6e4;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+      box-shadow: 0 12px 24px rgba(13, 148, 136, 0.22);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-overlay-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(15, 23, 42, 0.7);
+      color: #ffffff;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      z-index: 2;
+    }
+
+    .gallery-item:hover .gallery-overlay-btn {
+      opacity: 1;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0.45rem;
+      left: 0.5rem;
+      right: 0.5rem;
+      padding: 0.35rem 0.65rem;
+      background: rgba(4, 47, 46, 0.85);
+      backdrop-filter: blur(6px);
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-align: center;
+      border-radius: 9999px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      z-index: 2;
+    }
+
+    /* Practical Info Grid */
+    .practical-info-grid {
+      margin-top: 1.8rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.3rem 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem 1.5rem;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .info-label {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .info-value {
+      font-size: 0.88rem;
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .map-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .map-link-btn:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      border-top: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.75);
+      color: var(--text-sub);
+      font-size: 0.88rem;
+      backdrop-filter: blur(6px);
+      line-height: 1.8;
+    }
+
+    footer .brand-title {
+      font-weight: 800;
+      color: var(--primary-deep);
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    footer .school-info {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      margin-bottom: 0.4rem;
+    }
+
+    footer .copyright {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Lightbox Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 900px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-backdrop.active .modal-content {
+      transform: scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(15, 23, 42, 0.75);
+      color: #ffffff;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      z-index: 10;
+      transition: background 0.2s ease;
+    }
+
+    .modal-close-btn:hover {
+      background: rgba(225, 29, 72, 0.9);
+    }
+
+    .modal-img-wrap {
+      width: 100%;
+      max-height: 520px;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-img-wrap img {
+      width: 100%;
+      max-height: 520px;
+      object-fit: contain;
+    }
+
+    .modal-body {
+      padding: 1.5rem 1.8rem;
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-deep);
+      margin-bottom: 0.3rem;
+    }
+
+    .modal-caption {
+      font-size: 0.92rem;
+      color: var(--text-sub);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Top Navigation -->
+  <nav class="sticky-nav">
+    <div class="sticky-nav-inner">
+      <a href="index.html" class="nav-brand">
+        <i class="fa-solid fa-map-location-dot"></i> Saito Travel Guide: 静岡＆清水探訪
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-page-btn passive"><i class="fa-solid fa-clock-rotate-left"></i> 旅程＆事前調査</a>
+        <a href="spots.html" class="nav-page-btn active"><i class="fa-solid fa-location-dot"></i> 観光地一覧（詳細）</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero">
+    <span class="badge-tag"><i class="fa-solid fa-location-dot"></i> 観光地一覧</span>
+    <h1>主要観光スポット <span>ツアー日程と3大見どころ名所</span></h1>
+    <p>駿河湾の大パノラマクルーズ、歴史ある三保の松原、そして国宝・久能山東照宮を体験。</p>
+
+    <!-- Quick Jump Pills -->
+    <div class="quick-jump-container">
+      <div class="quick-jump-title"><i class="fa-solid fa-route"></i> クイックページ移動:</div>
+      <div class="quick-jump-pills">
+        <a href="#spot-cruise" class="jump-btn">
+          <span class="num-badge">1</span> 駿河湾フェリークルーズ (12:40 - 13:20)
+        </a>
+        <a href="#spot-miho" class="jump-btn">
+          <span class="num-badge">2</span> 三保の松原 (13:00 - 13:45)
+        </a>
+        <a href="#spot-toshogu" class="jump-btn">
+          <span class="num-badge">3</span> 久能山東照宮・ロープウェイ (13:40 - 15:00)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- SPOT 01: 駿河湾クルーズ -->
+    <article class="spot-article" id="spot-cruise">
+      <div class="spot-header-img">
+        <img src="images/cruise.jpg" alt="清水港 駿河湾フェリー・遊覧船">
+        <div class="spot-badges-wrapper">
+          <span class="spot-time-badge"><i class="fa-regular fa-clock"></i> 12:40 - 13:20</span>
+          <span class="spot-duration-badge"><i class="fa-solid fa-stopwatch"></i> ⏱ 45 mins</span>
+        </div>
+      </div>
+
+      <div class="spot-main-content">
+        <span class="spot-category">SPOT 01 ｜ 清水港 駿河湾フェリー・遊覧船</span>
+        <h3 class="spot-title">駿河湾フェリー・遊覧船クルーズ</h3>
+        <p class="spot-furigana">清水港から望む富士山の大パノラマとカモメとの戯れ体験。</p>
+
+        <p class="spot-lead-text">
+          日の出埠頭から出港する約40分間の絶景クルーズ。船上からは駿河湾越しに富士山と三保の松原が一望できます。デッキではウミネコやカモメへの餌やり体験が楽しめます。
+        </p>
+
+        <div class="spot-highlights-list">
+          <div class="spot-highlight-item"><i class="fa-solid fa-mountain"></i> 富士山と駿河湾の大パノラマ絶景</div>
+          <div class="spot-highlight-item"><i class="fa-solid fa-dove"></i> カモメ・ウミネコへの餌やり体験</div>
+          <div class="spot-highlight-item"><i class="fa-solid fa-ship"></i> 広々としたサンデッキと室内客室</div>
+        </div>
+
+        <div class="gallery-section">
+          <div class="gallery-header-title"><i class="fa-regular fa-images"></i> フォトギャラリー（クリックで拡大＆詳細表示）</div>
+          <div class="gallery-grid-4">
+            <div class="gallery-item" onclick="openModal('images/cruise.jpg', '日の出埠頭の遊覧船', '日の出埠頭から出港するエレガントな大型遊覧船。')">
+              <img src="images/cruise.jpg" alt="日の出埠頭の遊覧船">
+              <span class="gallery-overlay-btn"><i class="fa-solid fa-expand"></i></span>
+              <span class="gallery-caption">詳細を開く ｜ 日の出埠頭の遊覧船</span>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/cruise-view.jpg', '海からの富士山大パノラマ', '駿河湾上から望む雄大な富士山と三保の松原の全景。')">
+              <img src="images/cruise-view.jpg" alt="海からの富士山大パノラマ">
+              <span class="gallery-overlay-btn"><i class="fa-solid fa-expand"></i></span>
+              <span class="gallery-caption">詳細を開く ｜ 海からの富士山大パノラマ</span>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/seagull.jpg', '船を追うカモメの群れ', '風を切って併走するカモメ・ウミネコへの手元餌やり体験。')">
+              <img src="images/seagull.jpg" alt="船を追うカモメの群れ">
+              <span class="gallery-overlay-btn"><i class="fa-solid fa-expand"></i></span>
+              <span class="gallery-caption">詳細を開く ｜ 船を追うカモメの群れ</span>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/wake-waves.jpg', '駿河湾を一望する景観', '最深部2,500mを誇る日本一深い湾・駿河湾の青い海原。')">
+              <img src="images/wake-waves.jpg" alt="駿河湾を一望する景観">
+              <span class="gallery-overlay-btn"><i class="fa-solid fa-expand"></i></span>
+              <span class="gallery-caption">詳細を開く ｜ 駿河湾を一望する景観</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="practical-info-grid">
+          <div class="info-item">
+            <span class="info-label"><i class="fa-solid fa-ticket"></i> 拝観・乗船料</span>
+            <span class="info-value">¥1,000 (団体割引) ／ 学生: ¥500</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><i class="fa-solid fa-restroom"></i> お手洗い設備</span>
+            <span class="info-value">埠頭および船内にバリアフリートイレ完備</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><i class="fa-solid fa-wheelchair"></i> バリアフリー対応</span>
+            <span class="info-value">車椅子・ベビーカー対応フラット乗船スロープ</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><i class="fa-solid fa-location-dot"></i> 所在地</span>
+            <span class="info-value">10-8 Hinode-cho, Shimizu-ku, Shizuoka 424-0922</span>
+            <a href="https://maps.google.com/?q=Hinode+Pier+Shimizu+Port+Cruise" target="_blank" rel="noopener" class="map-link-btn">
+              <i class="fa-solid fa-up-right-from-square"></i> Google Mapsで開く
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SPOT 02: 三保の松原 -->
+    <article class="spot-article" id="spot-miho">
+      <div class="spot-header-img">
+        <img src="images/miho-matsubara.jpg" alt="富士山世界文化遺産構成資産 三保松原">
+        <div class="spot-badges-wrapper">
+          <span class="spot-time-badge"><i class="fa-regular fa-clock"></i> 13:00 - 13:45</span>
+          <span class="spot-duration-badge"><i class="fa-solid fa-stopwatch"></i> ⏱ 50 mins</span>
+        </div>
+      </div>
+
+      <div class="spot-main-content">
+        <span class="spot-category">SPOT 02 ｜ 富士山世界文化遺産構成資産 三保松原</span>
+        <h3 class="spot-title">富士山世界文化遺産構成資産 三保の松原</h3>
+        <p class="spot-furigana">約3万本の松林が続く7kmの海岸美と天女の羽衣伝説。</p>
+
+        <p class="spot-lead-text">
+          2013年に富士山世界文化遺産の構成資産に登録。約3万本の松並木と黒砂の海岸越しに見る富士山はまさに絶景。羽衣の松や文化館「みほしるべ」が見どころです。
+        </p>
+
+        <div class="spot-highlights-list">
+          <div class="spot-highlight-item"><i class="fa-solid fa-globe"></i> ユネスコ世界文化遺産構成資産</div>
+          <div class="spot-highlight-item"><i class="fa-solid fa-tree"></i> 神の道（樹齢数百年の松並木参道）</div>
+          <div class="spot-highlight-item"><i class="fa-solid fa-building-columns"></i> 静岡市三保松原文化創造センター「みほしるべ」</div>
+        </div>
+
+        <div class="gallery-section">
+          <div class="gallery-header-title"><i class="fa-regular fa-images"></i> フォトギャラリー（クリックで拡大＆詳細表示）</div>
+          <div class="gallery-grid-4">
+            <div class="gallery-item" onclick="openModal('images/miho-matsubara.jpg', '三保の松原と富士山の絶景', '青い駿河湾と黒砂海岸、松並木越しに望む日本一の富士山。')">
+              <img src="images/miho-matsubara.jpg" alt="三保の松原と富士山の絶景">
+              <span class="gallery-overlay-btn"><i class="fa-solid fa-expand"></i></span>
+              <span class="gallery-caption">詳細を開く ｜ 三保の松原と富士山の絶景</span>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/kami-no-michi.jpg', '神の道（木道木並木）', '樹齢数百年のクロマツが並ぶ約500mの神秘的な木道参道。')">
+              <img src="images/kami-no-michi.jpg" alt="神の道（木道木並木）">
+              <span class="gallery-overlay-btn"><i class="fa-solid fa-expand"></i></span>
+              <span class="gallery-caption">詳細を開く ｜ 神の道（木道木並木）</span>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/mihoshirube.jpg', 'みほしるべ文化館', '三保松原の価値と文化を深く学べるモダンな文化創造センター。')">
+              <img src="images/mihoshirube.jpg" alt="みほしるべ文化館">
+              <span class="gallery-overlay-btn"><i class="fa-solid fa-expand"></i></span>
+              <span class="gallery-caption">詳細を開く ｜ みほしるべ文化館</span>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/crane.jpg', '日本三大松原の海岸景観', '約7kmにわたる美しい海岸線と富士山が織りなす浮世絵の美。')">
+              <img src="images/crane.jpg" alt="日本三大松原の海岸景観">
+              <span class="gallery-overlay-btn"><i class="fa-solid fa-expand"></i></span>
+              <span class="gallery-caption">詳細を開く ｜ 日本三大松原の海岸景観</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="practical-info-grid">
+          <div class="info-item">
+            <span class="info-label"><i class="fa-solid fa-ticket"></i> 拝観・乗船料</span>
+            <span class="info-value">無料 (¥0)</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><i class="fa-solid fa-restroom"></i> お手洗い設備</span>
+            <span class="info-value">文化館内に温水洗浄便座付き多目的トイレ完備</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><i class="fa-solid fa-wheelchair"></i> バリアフリー対応</span>
+            <span class="info-value">バリアフリー木道整備；車椅子無料貸出あり</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><i class="fa-solid fa-location-dot"></i> 所在地</span>
+            <span class="info-value">1338-45 Miho, Shimizu-ku, Shizuoka 424-0901</span>
+            <a href="https://maps.google.com/?q=Miho+no+Matsubara+Shizuoka" target="_blank" rel="noopener" class="map-link-btn">
+              <i class="fa-solid fa-up-right-from-square"></i> Google Mapsで開く
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SPOT 03: 久能山東照宮 -->
+    <article class="spot-article" id="spot-toshogu">
+      <div class="spot-header-img">
+        <img src="images/toshogu-shrine.jpg" alt="国宝 久能山東照宮">
+        <div class="spot-badges-wrapper">
+          <span class="spot-time-badge"><i class="fa-regular fa-clock"></i> 13:40 - 15:00</span>
+          <span class="spot-duration-badge"><i class="fa-solid fa-stopwatch"></i> ⏱ 70 mins</span>
+        </div>
+      </div>
+
+      <div class="spot-main-content">
+        <span class="spot-category">SPOT 03 ｜ 国宝 久能山東照宮（徳川家康公御遺訓）</span>
+        <h3 class="spot-title">国宝 久能山東照宮・日本平ロープウェイ</h3>
+        <p class="spot-furigana">徳川家康公を祀る最初の東照宮。絶景ロープウェイでアクセス。</p>
+
+        <p class="spot-lead-text">
+          徳川家康公の遺訓により建てられた最初の東照宮。権現造りの社殿は国宝に指定。日本平からは地獄谷を越える日本平ロープウェイで空中散歩を満喫できます。
+        </p>
+
+        <div class="spot-highlights-list">
+          <div class="spot-highlight-item"><i class="fa-solid fa-crown"></i> 国宝指定の豪華絢爛な御社殿</div>
+          <div class="spot-highlight-item"><i class="fa-solid fa-cable-car"></i> 日本平ロープウェイ空中散歩</div>
+          <div class="spot-highlight-item"><i class="fa-solid fa-shield-halved"></i> 家康公の甲冑を展示する博物館</div>
+        </div>
+
+        <div class="gallery-section">
+          <div class="gallery-header-title"><i class="fa-regular fa-images"></i> フォトギャラリー（クリックで拡大＆詳細表示）</div>
+          <div class="gallery-grid-4">
+            <div class="gallery-item" onclick="openModal('images/toshogu-shrine.jpg', '国宝 久能山東照宮社殿', '極彩色の漆塗りと金箔彫刻が圧巻の国宝指定・本殿社殿。')">
+              <img src="images/toshogu-shrine.jpg" alt="国宝 久能山東照宮社殿">
+              <span class="gallery-overlay-btn"><i class="fa-solid fa-expand"></i></span>
+              <span class="gallery-caption">詳細を開く ｜ 国宝 久能山東照宮社殿</span>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/nihondaira-ropeway.jpg', '日本平ロープウェイゴンドラ', '日本平と久能山を結ぶ絶景ロープウェイ空中散歩。')">
+              <img src="images/nihondaira-ropeway.jpg" alt="日本平ロープウェイゴンドラ">
+              <span class="gallery-overlay-btn"><i class="fa-solid fa-expand"></i></span>
+              <span class="gallery-caption">詳細を開く ｜ 日本平ロープウェイゴンドラ</span>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/shimizu-ic.jpg', '門からの駿河湾一望', '参道一ノ門から望む駿河湾と青空の大絶景。')">
+              <img src="images/shimizu-ic.jpg" alt="門からの駿河湾一望">
+              <span class="gallery-overlay-btn"><i class="fa-solid fa-expand"></i></span>
+              <span class="gallery-caption">詳細を開く ｜ 門からの駿河湾一望</span>
+            </div>
+            <div class="gallery-item" onclick="openModal('images/cruise-view.jpg', '久能山東照宮博物館・甲冑', '家康公愛用の甲冑や洋時計を収蔵・展示する博物館。')">
+              <img src="images/cruise-view.jpg" alt="久能山東照宮博物館・甲冑">
+              <span class="gallery-overlay-btn"><i class="fa-solid fa-expand"></i></span>
+              <span class="gallery-caption">詳細を開く ｜ 久能山東照宮博物館</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="practical-info-grid">
+          <div class="info-item">
+            <span class="info-label"><i class="fa-solid fa-ticket"></i> 拝観・乗船料</span>
+            <span class="info-value">¥800 (社殿+ロープウェイ) ／ 学生: ¥400</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><i class="fa-solid fa-restroom"></i> お手洗い設備</span>
+            <span class="info-value">日本平駅および社務所横にトイレあり</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><i class="fa-solid fa-wheelchair"></i> バリアフリー対応</span>
+            <span class="info-value">ロープウェイ乗降可；境内は石段あり</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><i class="fa-solid fa-location-dot"></i> 所在地</span>
+            <span class="info-value">390 Negoya, Suruga-ku, Shizuoka 422-8011</span>
+            <a href="https://maps.google.com/?q=Kunozan+Toshogu+Shrine+Shizuoka" target="_blank" rel="noopener" class="map-link-btn">
+              <i class="fa-solid fa-up-right-from-square"></i> Google Mapsで開く
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="brand-title">Saito Travel Guide: Shizuoka & Shimizu Discovery Tour</div>
+    <div class="school-info">Chubu Computer & Patissier College ｜ Operations Desk TEL: 054-281-3111</div>
+    <div class="copyright">&copy; 2026 Saito Travel Operations Desk. All Rights Reserved.</div>
+  </footer>
+
+  <!-- Interactive Lightbox Modal -->
+  <div class="modal-backdrop" id="imageModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-img-wrap">
+        <img id="modalImage" src="" alt="拡大表示画像">
+      </div>
+      <div class="modal-body">
+        <h4 class="modal-title" id="modalTitle">画像タイトル</h4>
+        <p class="modal-caption" id="modalCaption">画像の詳しい説明がここに入ります。</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(imgSrc, title, caption) {
+      const modal = document.getElementById('imageModal');
+      document.getElementById('modalImage').src = imgSrc;
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalCaption').textContent = caption;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('imageModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOnBackdrop(event) {
+      if (event.target.id === 'imageModal') {
+        closeModal();
+      }
+    }
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
+
+</body>
+</html>
